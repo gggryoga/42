@@ -1,0 +1,28 @@
+CC = gcc
+CFLAG = -Wall -Wextra -Werror
+TARGET = libft.a
+SRCS = ft_isalpha.c		\
+		ft_isdigit.c	\
+		ft_isalnum.c	\
+		ft_isascii.c	\
+		ft_isprint.c 	\
+		ft_strlen.c 	\
+		ft_strlcpy.c 	\
+		ft_toupper.c 	\
+		ft_tolower.c 	\
+		ft_strrchr.c 	\
+		ft_strncmp.c 	\
+		ft_calloc.c		\
+		ft_strdup.c	
+OBJS = $(SRCS:.c=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	ar rcs $(TARGET) $(OBJS)
+
+clean:
+	-rm -f $(OBJS) $(TARGET) *.d
+
+fclean:
+	-rm -f *.o $(TARGET)
