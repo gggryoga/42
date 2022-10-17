@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:51:19 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/16 19:34:23 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:56:32 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ size_t ft_strlcpy(char *dst,const char *src,size_t dstsize)
 
 	i = 0;
 	count = ft_strlen(src);
-	// if (count <= dstsize)
-	// 	dstsize = count;
+	if (count <= dstsize)
+		dstsize = count;
 	while (i < dstsize)
 	{
 		dst[i] = src[i];
