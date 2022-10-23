@@ -5,14 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 18:29:08 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/10 18:30:11 by rozeki           ###   ########.fr       */
+/*   Created: 2022/10/21 18:02:51 by rozeki            #+#    #+#             */
+/*   Updated: 2022/10/21 18:46:10 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void *ft_memmove(void *dest, const void *src, size_t n)
 {
+	size_t	i;
+	unsigned char *dmem;
+	unsigned char *smem;
 	
+	i = 0;
+	dmem = (unsigned char *)dest;
+	smem = (unsigned char *)src;
+	if (dmem > smem)
+	{
+		while (n-- > 0)
+			dmem[n] = smem[n];
+	}
+	else 
+	{
+		while (i < n)
+		{
+			dmem[i] = smem[i];
+			i++;
+		}
+	}
+	return (dmem);
 }
