@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:51:19 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/20 14:32:07 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/10/24 15:01:40 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ size_t ft_strlcpy(char *dst,const char *src,size_t dstsize)
 
 	i = 0;
 	count = ft_strlen(src);
-	if (count < dstsize)
-		dstsize = count;
-	while (i < dstsize)
+	if (dstsize == 0)
+		return (count);
+	while (i < dstsize - 1 && src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i ++;
 	}
+	dst[i] = '\0';
 	return (count);
 }
