@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:36:30 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/17 16:35:52 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/10/30 14:48:43 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void *dest;
+	size_t	i;
 
 	if (count == 0 || size == 0)
-		return (NULL);
+		return (malloc(0));
 	dest = malloc(count * size);
 	if (dest == NULL)
 		return (NULL);
+	ft_memset((unsigned char *)dest, 0 , count * size);
 	return (dest);
 }
 
