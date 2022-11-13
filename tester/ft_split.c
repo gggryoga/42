@@ -1,57 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/13 19:01:24 by rozeki            #+#    #+#             */
+/*   Updated: 2022/11/13 19:05:21 by rozeki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_splitcount(char const *s,char c)
+static int	words_count(const char *str, char c)
 {
-	int a;
-	int count;
+	int	i;
+	int	flag;
 
-	count = 0;
-	a = 0;
-	while (s[a])
+	i = 0;
+	flag = 0;
+	while (*str)
 	{
-		if(s[a] == c)
-			count++;
-		a++;
+		if (*str != c && flag == 0)
+		{
+			flag = 1;
+			i++;
+		}
+		else if (*str == c)
+			flag = 0;
+		str++;
 	}
-	return (count);
+	return (i);
+}
+
+static char	*words_put(const char *str, int start, int end)
+{
+	char	*words;
+	int		i;
+
+	i = 0;
+	words = malloc(end - start + 1);
+	while (start < end)
+	{
+		words[i] = str[start];
+		start ++;
+		i ++;
+	}
+	words[i] = '\0';
+	return (words);
+
 }
 
 char **ft_split(char const *s, char c)
 {
-	char **h;
-	int	count;
-	int i;
-	int a;
+	size_t	i;
+	size_t	n;
+	int		count;
+	char	**h;
 
-	a = 0;
-	count = ft_splitcount(s, c);
-	h = malloc(sizeof(char) * (ft_strlen(s) - count));
+	h = malloc((words_count(s, c) + 1));
 	if (h == NULL)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	n = 0;
+	count = -1;
+	while (i < ft_strlen(s))
 	{
-		if (s[i] != c)
-			h[a++] = *s[i++];
-		else
-			i++;
+		if (s[i] != c && count < 0)
+			count = i;
+		else if (s[i] == c || i == ft_strlen(s))
+		{
+			h[n++] = words_put(s, count, i);
+			count = -1;
+		}
+		i ++;
 	}
-	h[i] = 0;
+	h[n] = 0;
 	return (h);
-}
-
-int main()
-{
-	char *h = "Hello Wolrd";
-	char c ='o';
-	char *ans;
-
-	ans = *ft_split(h,c);
-	int a = 0;
-	while (ans[a])
-	{
-		printf("%C",ans[a]);
-		a++;
-	}
-	return 0;
 }
