@@ -6,13 +6,13 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 15:07:42 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/23 16:50:45 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/11 15:38:46 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	unsigned int h;
+	long long h;
 	int c;
 	int i;
 
@@ -25,12 +25,12 @@ int	ft_atoi(const char *str)
 	{
 		if (str[i] == '-')
 			c = -1;
-			i++;
+		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
+	while (str[i] && ('0' <= str[i]) && (str[i] <= '9'))
 	{
 		h = 10 * h + (str[i] - '0');
 		i++;
 	}
-	return ((int)(c * h));
+	return (c * h);
 }
