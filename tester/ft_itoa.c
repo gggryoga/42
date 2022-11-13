@@ -31,9 +31,10 @@ char	*ft_itoa(int n)
 		h[0] = '-';
 		num = -num;
 	}
-	if (num == 0)
-		h[0] = '\0';
+	h[len] = '\0';
 	len --;
+	if (num == 0)
+		h[len] = '0';
 	while (num)
 	{
 		h[len] = num % 10 + '0';

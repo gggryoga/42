@@ -7,7 +7,7 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char *h;
 
 	h = (unsigned char *)s;
-	count = ft_strlen(h);
+	count = ft_strlen(s);
 	if (count < n)
 		n = count;
 	i = 0;

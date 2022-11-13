@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:40:00 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/02 16:51:22 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/13 16:45:46 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 		n ++;
 		i ++;
 	}
+	h[i] = '\0';
 	return (h);
 }
