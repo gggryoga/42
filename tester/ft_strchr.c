@@ -6,16 +6,16 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:50:35 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/30 15:54:56 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/13 17:38:37 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int n;
-	
+	int	n;
+
 	if (s == NULL && c == 0)
 		return ((char *)s);
 	n = 0;

@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 17:39:11 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/30 18:12:30 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/13 17:39:37 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 
 	if (n < 0)
 	{
-		ft_putchar_fd('-',fd);
+		ft_putchar_fd('-', fd);
 		i = n;
 		i = -i;
 	}
@@ -31,5 +31,5 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(i / 10, fd);
 		i %= 10;
 	}
-	ft_putchar_fd(i + '0',fd);
+	ft_putchar_fd(i + '0', fd);
 }

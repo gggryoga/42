@@ -6,19 +6,19 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:11:36 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/02 17:19:20 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/13 17:36:37 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *h;
-	int n;
-	int j;
+	char	*h;
+	int		n;
+	int		j;
 
-	h = malloc(sizeof(char)* (ft_strlen(s1) + ft_strlen(s2)));
+	h = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)));
 	if (h == NULL)
 		return (NULL);
 	n = 0;

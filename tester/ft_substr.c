@@ -6,17 +6,17 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:40:00 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/13 16:45:46 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/13 17:29:52 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *h;
-	int i;
-	int n;
+	char	*h;
+	int		i;
+	int		n;
 
 	h = malloc(sizeof(char) * (len + 1));
 	if (h == NULL)
