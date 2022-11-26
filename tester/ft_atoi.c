@@ -6,31 +6,31 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 15:07:42 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/13 17:27:50 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/25 16:32:24 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	unsigned int h;
+	int h;
 	int c;
 	int i;
 
 	h = 0;
 	i = 0;
 	c = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\f' || str[i] == '\r' || str[i] == '\v')
+	while (str[i] && str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			c = -1;
+			c *= -1;
 		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		h = h * 10 + (str[i] - '0');
 		i++;
-	}
-	return ((int)c * h);
+	} 
+	return ((int)h * c);
 }
