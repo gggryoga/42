@@ -47,3 +47,5 @@ clean:
 
 fclean:
 	-rm -f *.o $(TARGET)
+
+re:	fclean all

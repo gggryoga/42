@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:18:52 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/30 17:31:56 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/30 19:35:43 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (s == NULL || f == NULL)
 		return (NULL);
-	result = malloc(ft_strlen(s));
+	result = malloc(ft_strlen(s) + 1);
 	if (result == NULL)
 		return (NULL);
 	len = ft_strlen(s);

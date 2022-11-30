@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 19:16:14 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/13 17:30:22 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/30 19:28:07 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	if (s == NULL && c == 0)
-		return ((char *)s);
 	i = ft_strlen(s);
 	while (i >= 0)
 	{
