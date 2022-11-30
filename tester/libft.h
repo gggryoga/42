@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <limits.h>
 
 void	*ft_calloc(size_t count, size_t size);
 int	ft_isalnum(int c);

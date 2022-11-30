@@ -1,19 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 17:58:10 by rozeki            #+#    #+#             */
+/*   Updated: 2022/11/30 18:04:34 by rozeki           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
-	size_t	count;
-	unsigned char *h;
+	char *h;
 
 	h = (unsigned char *)s;
-	count = ft_strlen(s);
-	if (count < n)
-		n = count;
 	i = 0;
 	while (i < n)
 	{
-		h[i] = (unsigned char)0;
+		h[i] = '\0';
 		i ++;
 	}
 }

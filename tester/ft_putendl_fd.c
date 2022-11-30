@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 16:55:23 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/13 18:08:11 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/30 18:34:52 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void ft_putendl_fd(char *s, int fd)
 {
+	if (s == NULL)
+		return ;
 	ft_putstr_fd (s, fd);
 	ft_putchar_fd('\n', fd);
 }

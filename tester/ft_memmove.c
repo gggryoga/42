@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:02:51 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/21 18:46:10 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/30 18:12:52 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	dmem = (unsigned char *)dest;
 	smem = (unsigned char *)src;
+	if (dmem == NULL && smem == NULL)
+		return (NULL);
 	if (dmem > smem)
 	{
 		while (n-- > 0)

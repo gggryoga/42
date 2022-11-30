@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 19:01:24 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/13 19:05:21 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/30 17:53:27 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,66 +15,42 @@
 static int	words_count(const char *str, char c)
 {
 	int	i;
-	int	flag;
+	int	cnt;
 
 	i = 0;
-	flag = 0;
-	while (*str)
+	cnt = 0;
+	while (str[i])
 	{
-		if (*str != c && flag == 0)
-		{
-			flag = 1;
-			i++;
-		}
-		else if (*str == c)
-			flag = 0;
-		str++;
+		if (str[i] != c && (str[i + 1] == c || str[i + 1] == '\0'))
+			cnt++;
+		i++;
 	}
-	return (i);
-}
-
-static char	*words_put(const char *str, int start, int end)
-{
-	char	*words;
-	int		i;
-
-	i = 0;
-	words = malloc(end - start + 1);
-	while (start < end)
-	{
-		words[i] = str[start];
-		start ++;
-		i ++;
-	}
-	words[i] = '\0';
-	return (words);
-
+	return (cnt);
 }
 
 char **ft_split(char const *s, char c)
 {
 	size_t	i;
+	size_t	j;
 	size_t	n;
-	int		count;
 	char	**h;
 
-	h = malloc((words_count(s, c) + 1));
-	if (h == NULL)
+	h = (char **)ft_calloc((words_count(s, c) + 1), sizeof(char *));
+	if (h == NULL || s == NULL)
 		return (NULL);
 	i = 0;
-	n = 0;
-	count = -1;
-	while (i < ft_strlen(s))
+	j = 0;
+	while (s[i])
 	{
-		if (s[i] != c && count < 0)
-			count = i;
-		else if (s[i] == c || i == ft_strlen(s))
-		{
-			h[n++] = words_put(s, count, i);
-			count = -1;
-		}
-		i ++;
+		while (s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		n = i;
+		while (s[i] != c && s[i] != 0)
+			i++;
+		h[j] = ft_substr(s, n, i - n);
+		j++;
 	}
-	h[n] = 0;
 	return (h);
 }

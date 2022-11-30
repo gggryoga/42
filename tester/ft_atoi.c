@@ -6,20 +6,76 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 15:07:42 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/25 16:32:24 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/11/30 17:17:20 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+// static long int ft_checkOverFlow(int ans, const char *str, int i, int c)
+// {
+// 	int premax;
+	
+// 	premax = 214748364;
+// 	if (str[i] == '\0' || str[i] > '9' || str[i] < '0')
+// 		return (ans);
+// 	else if ((ans > premax && c == 1) || (str[i + 1] != '\0' && c == 1))
+// 		return ((int)LONG_MAX);
+// 	else if ((ans > premax && c == -1) || (str[i + 1] != '\0' && c == -1))
+// 		return ((int)LONG_MIN);
+// 	else if (ans < premax && str[i + 1] == '\0')
+// 		return (ans * 10 + (str[i] - '0'));
+// 	else if (str[i] <= '7' && c == 1)
+// 		return (ans * 10 + (str[i] - '0'));
+// 	else if (str[i] <= '7' && c == -1)
+// 		return (ans * 10 * c - (str[i] - '0'));
+// 	else if (str[i] == 8 && c == -1)
+// 		return (-2147483648);
+// 	else if (ans == premax && str[i] >= 8 && c == 1)
+// 		return ((int)LONG_MAX);
+// 	else
+// 		return ((int)LONG_MIN);
+// }
+
+static int	overflow(long int n, const char c)
+{
+	long int	jdg1;
+	long int	jdg2;
+
+	jdg1 = LONG_MAX / 10;
+	jdg2 = LONG_MAX % 10;
+	if (n > jdg1)
+		return (0);
+	if (n == jdg1 && c - 48 > jdg2)
+		return (0);
+	return (1);
+}
+
+static int	underflow(long int n, const char c)
+{
+	long int	jdg1;
+	long int	jdg2;
+
+	jdg1 = LONG_MIN / 10;
+	jdg2 = LONG_MIN % 10;
+	if (n < jdg1)
+		return (0);
+	if (n == jdg1 / 10 && (c - 48) * (-1) < jdg2)
+		return (0);
+	return (1);
+}
+
+
 int	ft_atoi(const char *str)
 {
-	int h;
+	long int ans;
 	int c;
 	int i;
 
-	h = 0;
+	ans = 0;
 	i = 0;
 	c = 1;
-	while (str[i] && str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -29,8 +85,24 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		h = h * 10 + (str[i] - '0');
-		i++;
-	} 
-	return ((int)h * c);
+		if (c == 1 && overflow(ans, str[i]) == 0)
+			return ((int)LONG_MAX);
+		if (c == -1 && underflow(-1 * ans, str[i + 1]) == 0)
+			return ((int)LONG_MIN);
+		ans = ans * 10 + (str[i] - '0');
+		i ++;
+	}
+	return (ans * c);
 }
+
+
+
+// #include <stdlib.h>
+// #include <stdio.h>
+// int main()
+// {
+// 	int a = ft_atoi("9223372036854775806");
+// 	printf("ft_atoi : %d",a);
+// 	int b = atoi("9223372036854775806");
+// 	printf("\natoi : %d",b);
+// }
