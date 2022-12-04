@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 17:11:36 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/30 19:31:34 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/12/04 15:18:12 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	h = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)));
+	h = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (h == NULL)
 		return (NULL);
 	n = 0;
@@ -36,5 +36,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		n ++;
 		j ++;
 	}
+	h[n] = '\0';
 	return (h);
 }

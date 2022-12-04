@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 17:02:34 by rozeki            #+#    #+#             */
-/*   Updated: 2022/10/30 15:34:49 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/12/04 15:03:02 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned char	*h1;
 	unsigned char	*h2;
 
+	if (n == 0)
+		return (0);
 	h1 = (unsigned char *)s1;
 	h2 = (unsigned char *)s2;
 	i = 0;
@@ -25,9 +27,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	{
 		if (h1[i] == h2[i] && h1[i] != '\0' && h2[i] != '\0')
 			i ++;
-		else if (h1[i] != h2[i] && h1[i] != '\0' && h2[i] != '\0')
-			return (h1[i] - h2[i]);
-		else if (h1[i] == '\0' || h2[i] == '\0')
+		else
 			return (h1[i] - h2[i]);
 	}
 	return (0);
