@@ -39,11 +39,11 @@ SRCS = ft_isalpha.c		\
 		ft_putnbr_fd.c
 
 BONUS_LIST = ft_lstnew.c		\
-			# ft_lstadd_front.c	\
-			# ft_lstsize.c	\
-			# ft_lstlast.c	\
-			# ft_lstadd_back.c\
-			# ft_lstdelone.c	\
+			ft_lstadd_front.c	\
+			ft_lstsize.c	\
+			ft_lstlast.c	\
+			ft_lstadd_back.c	\
+			ft_lstdelone.c	
 			# ft_lstclear.c	\
 			# ft_lstiter.c	\
 			# ft_lstmap.c		
@@ -57,14 +57,14 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	ar rcs $(TARGET) $(OBJS)
 
+bonus: $(BONUS_OBJS)
+	$(AR) $(TARGET) $(BONUS_OBJS) 
+
 clean:
 	-rm -f $(OBJS) $(TARGET) *.d
 
 fclean:
 	-rm -f *.o $(TARGET)
-
-bonus: $(BONUS_LIST)
-	$(ar) $(target) $(BONUS_OBJS) 
 
 
 re:	fclean all
