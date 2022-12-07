@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:03:51 by rozeki            #+#    #+#             */
-/*   Updated: 2022/12/04 17:31:45 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/12/07 15:26:07 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list *tmp;
 
-	if (lst == NULL)
-		return (NULL);
+	if (lst == NULL || del == NULL || *lst == NULL)
+		return;
 	while (*lst)
 	{
-		tmp = 
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	
+	*lst = NULL;
 }
