@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:42:04 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/30 17:22:42 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:21:34 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*dest;
+	char		*dest;
 	size_t		i;
 	size_t		c;
 

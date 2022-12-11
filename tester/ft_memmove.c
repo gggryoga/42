@@ -6,18 +6,18 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 18:02:51 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/30 18:12:52 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:25:21 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	unsigned char *dmem;
-	unsigned char *smem;
-	
+	size_t			i;
+	unsigned char	*dmem;
+	unsigned char	*smem;
+
 	i = 0;
 	dmem = (unsigned char *)dest;
 	smem = (unsigned char *)src;
@@ -28,7 +28,7 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 		while (n-- > 0)
 			dmem[n] = smem[n];
 	}
-	else 
+	else
 	{
 		while (i < n)
 		{

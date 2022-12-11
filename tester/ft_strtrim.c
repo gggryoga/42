@@ -9,23 +9,23 @@ int	ft_trimstart(const char *s1, const char *set)
 	i = 0;
 	while (i < len)
 	{
-		if (ft_strchr(set,s1[i]) == 0)
+		if (ft_strchr(set, s1[i]) == 0)
 			return (i);
 		i++;
 	}
 	return (i);
 }
 
-int ft_trimfin(const char *s1, const char *set)
+int	ft_trimfin(const char *s1, const char *set)
 {
-	size_t len;
-	size_t i;
+	size_t	len;
+	size_t	i;
 
 	len = ft_strlen(s1);
 	i = 0;
 	while (i < len)
 	{
-		if (ft_strchr(set,s1[len - i - 1]) == 0)
+		if (ft_strchr(set, s1[len - i - 1]) == 0)
 			return (len - i);
 		i ++;
 	}
@@ -34,9 +34,9 @@ int ft_trimfin(const char *s1, const char *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int start;
-	int fin;
-	char *ans;
+	int		start;
+	int		fin;
+	char	*ans;
 
 	if (s1 == NULL)
 		return (NULL);
@@ -46,7 +46,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	fin = ft_trimfin(s1, set);
 	if (start >= fin)
 		return (ft_strdup(""));
-	ans = malloc(fin -start + 1);
+	ans = malloc(fin - start + 1);
 	if (ans == NULL)
 		return (NULL);
 	ft_strlcpy(ans, s1 + start, fin - start + 1);

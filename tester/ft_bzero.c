@@ -6,7 +6,7 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:58:10 by rozeki            #+#    #+#             */
-/*   Updated: 2022/12/04 14:53:21 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/12/08 15:05:59 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
-	char *h;
+	char	*h;
 
 	h = (char *)s;
 	i = 0;

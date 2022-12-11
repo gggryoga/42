@@ -19,7 +19,7 @@ char	*ft_itoa(int n)
 {
 	char	*h;
 	long	num;
-	int	len;
+	int		len;
 
 	len = ft_len(n);
 	num = n;
@@ -39,8 +39,7 @@ char	*ft_itoa(int n)
 	{
 		h[len] = num % 10 + '0';
 		len --;
-		num = num /10;
+		num = num / 10;
 	}
 	return (h);
 }
-

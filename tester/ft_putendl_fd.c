@@ -6,13 +6,13 @@
 /*   By: rozeki <rozeki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 16:55:23 by rozeki            #+#    #+#             */
-/*   Updated: 2022/11/30 18:34:52 by rozeki           ###   ########.fr       */
+/*   Updated: 2022/12/08 13:14:03 by rozeki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	if (s == NULL)
 		return ;
